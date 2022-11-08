@@ -5,7 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
-
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServicesAll = () => {
     const allData = useLoaderData();
@@ -17,8 +18,13 @@ const ServicesAll = () => {
                 allData?.map(aData=>(
            
              <Col key={aData._id} sm={12} lg={4}>
-                    <Card  className='mx-auto my-lg-5 my-2' style={{ width: '18rem', height:'600px' }}>
-                        <Card.Img variant="top" style={{ height:'300px' }} src={aData.picture} />
+                    <Card  className='mx-auto my-lg-5 my-2' style={{ width: '18rem', height:'500px' }}>
+                    <PhotoProvider>
+                        <PhotoView src={aData.picture}>
+                        <Card.Img variant="top" style={{ height:'200px' }} src={aData.picture} />
+                        </PhotoView>
+                    </PhotoProvider>
+                      
                         <Card.Body>
                             <Card.Title>{aData.title}</Card.Title>
                             <Card.Text>
@@ -28,7 +34,7 @@ const ServicesAll = () => {
                             <div>
                                 <p>Ratings:{aData.rating}</p>
                             </div>
-                            <Link to={`/GhostBikers/${aData._id}`}><Button variant="primary" className='w-100'>Details</Button></Link>
+                            <Link to={`/GhostBikers/${aData._id}`}><Button variant="primary" className='w-100'>View Details</Button></Link>
                         </Card.Body>
                         </Card>
                        

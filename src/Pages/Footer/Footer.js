@@ -1,65 +1,105 @@
 import React from 'react';
-import { CDBFooter,CDBBox, CDBFooterLink, CDBBtn, CDBIcon} from 'cdbreact';
-import img from  '../../assets/image/images.jpeg';
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
+
+
+
 
 
 const Footer = () => {
   return (
-    <CDBFooter className="shadow bg-info">
-      <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
-        <CDBBox display="flex" justifyContent="between" className="flex-wrap">
-          <CDBBox alignSelf="center">
-            <a href="/" className="d-flex align-items-center p-0 text-dark">
-              <img alt="logo" src={img} width="40px" />
-              <span className="ml-3 h5 font-weight-bold">GHOST BIKERS</span>
-            </a>
-            <CDBBox className="mt-5" display="flex">
-              <CDBBtn flat color="dark" className="p-2">
-                <CDBIcon fab icon="facebook-f" />
-              </CDBBtn>
-              <CDBBtn flat color="dark" className="mx-3 p-2">
-                <CDBIcon fab icon="twitter" />
-              </CDBBtn>
-              <CDBBtn flat color="dark" className="p-2">
-                <CDBIcon fab icon="instagram" />
-              </CDBBtn>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              GHOST BIKERS
-            </p>
-            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer' }}>
-              <CDBFooterLink href="/">Resources</CDBFooterLink>
-              <CDBFooterLink href="/">About Us</CDBFooterLink>
-              <CDBFooterLink href="/">Contact</CDBFooterLink>
-              <CDBFooterLink href="/">Blog</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Products
-            </p>
-            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer' }}>
-              <CDBFooterLink href="/">Windframe</CDBFooterLink>
-              <CDBFooterLink href="/">Loop</CDBFooterLink>
-              <CDBFooterLink href="/">Contrast</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Help
-            </p>
-            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer' }}>
-              <CDBFooterLink href="/">Support</CDBFooterLink>
-              <CDBFooterLink href="/">Sign Up</CDBFooterLink>
-              <CDBFooterLink href="/">Sign In</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-        </CDBBox>
-        <small className="text-center mt-5">&copy; GHOST BIKERS, 2022. All rights reserved.</small>
-      </CDBBox>
-    </CDBFooter>
+    <MDBFooter  className='pt-3 text-center text-lg-start text-muted bg-info'>
+       <section className=''>
+        <MDBContainer className='text-center text-md-start mt-5'>
+          <MDBRow className='mt-3'>
+            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>
+                <MDBIcon icon="gem" className="me-3" />
+                GHOST BIKERS
+              </h6>
+              <p>
+                Here you can use rows and columns <br /> to organize our footer content.
+              </p>
+            </MDBCol>
+            
+
+            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
+              <p>
+                <Link to='/angular' className='text-reset'>
+                  Angular
+                </Link>
+              </p>
+              <p>
+                <Link to='/' className='text-reset'>
+                  React
+                </Link>
+              </p>
+              <p>
+                <Link to='vue' className='text-reset'>
+                  Vue
+                </Link>
+              </p>
+              <p>
+                <Link to='/laravel' className='text-reset'>
+                  Laravel
+                </Link>
+              </p>
+            </MDBCol>
+
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
+              <p>
+                <Link to='/pricing' className='text-reset'>
+                  Pricing
+                </Link>
+              </p>
+              <p>
+                <Link to='/settings' className='text-reset'>
+                  Settings
+                </Link>
+              </p>
+              <p>
+                <Link to='/services' className='text-reset'>
+                  Services
+                </Link>
+              </p>
+              <p>
+                <Link to='/help' className='text-reset'>
+                  Help
+                </Link>
+              </p>
+            </MDBCol>
+
+            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+              <p>
+                <MDBIcon icon="home" className="me-2" />
+                Dhaka,Bangladesh-1200.
+              </p>
+              <p>
+                <MDBIcon icon="envelope" className="me-3" />
+                rubelrk377@gmail.com
+              </p>
+              <p>
+                <MDBIcon icon="phone" className="me-3" /> + 019 00000000
+              </p>
+              <p>
+                <MDBIcon icon="print" className="me-3" /> + 017 00000000
+              </p>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </section>
+
+      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+        © 2022 Copyright:
+        <Link className='text-reset fw-bold' to='https://mdbootstrap.com/'>
+          GhostBikers
+        </Link>
+      </div>
+    </MDBFooter>
+
   );
 };
 export default Footer;
