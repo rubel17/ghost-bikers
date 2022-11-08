@@ -1,20 +1,25 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const Service = ({lData}) => {
-    console.log(lData)
+    const {description, picture, title, price, rating, _id} = lData;
     return (
-        <div className='ms-2'>
-              <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+        <div className='my-sm-5'>
+              <Card style={{ width: '18rem', height:'500px' }}>
+      <Card.Img style={{height:'300px' }} variant="top" src={picture}/>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+         {description.slice(0,100)}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <h4>Price:{price}</h4>
+        <div>
+            <p>Ratings:{rating}</p>
+
+        </div>
+        <Link to={`/GhostBikers/${_id}`}><Button variant="primary" className='w-100'>Details</Button></Link>
       </Card.Body>
     </Card>
         </div>

@@ -9,10 +9,11 @@ const OurMission = () => {
             <h3 className='text-danger'>OUR MISSION</h3>
             <h1>WELCOME THE <br />
                 EYES OF WEST WIND</h1>
+                <hr className='w-75 mx-auto' />
             </div>
             <div className='mt-5  d-lg-flex justify-content-around'>
            
-           <Card className='bg-secondary' border="primary" style={{ width: '18rem', height: '300px' }}>
+           <Card className='bg-secondary mt-3' border="primary" style={{ width: '18rem', height: '300px' }}>
                 <Card.Body className='text-light'>
                 <WrenchIcon className='h-25 w-75 ps-5 mb-5'></WrenchIcon>
                 <Card.Title>SOCIAL ACTION</Card.Title>
@@ -21,7 +22,7 @@ const OurMission = () => {
                 </Card.Text>
                 </Card.Body>
             </Card>
-           <Card className='bg-secondary' border="primary" style={{ width: '18rem', height: '300px' }}>
+           <Card className='bg-secondary mt-3' border="primary" style={{ width: '18rem', height: '300px' }}>
                 <Card.Body className='text-light'>
                 <UserIcon className='h-25 w-75 ps-5 mb-5'></UserIcon>
                 <Card.Title>COMMUNITY</Card.Title>
@@ -30,7 +31,7 @@ const OurMission = () => {
                 </Card.Text>
                 </Card.Body>
             </Card>
-           <Card className='bg-secondary' border="primary" style={{ width: '18rem', height: '300px' }}>
+           <Card className='bg-secondary mt-3' border="primary" style={{ width: '18rem', height: '300px' }}>
                 <Card.Body className='text-light'>
                 <SignalIcon className='h-25 w-75 ps-5 mb-5'></SignalIcon>
                 <Card.Title>RIDE OUT</Card.Title>

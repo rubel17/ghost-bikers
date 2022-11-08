@@ -13,8 +13,10 @@ const Services = () => {
 
     return (
       <div>
-        <h2>Our Services</h2>
-          <div  className='d-lg-flex justify-content-around my-5'>
+        <h2 className='text-center text-success'>Our Services</h2>
+        <h4 className='text-center text-warning'>WE PROVIDE BEST CUSTOM MOTORCYCLE</h4>
+        <hr className='w-75 mx-auto' />
+          <div  className='d-lg-flex justify-content-around my-3'>
            {
             loadData?.map(lData =><Service 
             key={lData._id}
@@ -24,7 +26,10 @@ const Services = () => {
            }
            
         </div>
-        <Link to='/servicesall'>See All</Link>
+        <div className='d-flex justify-content-center pb-5'>
+            <Link to='/servicesall'><button className='btn btn-primary px-5'>See All</button></Link>
+        </div>
+        
       </div>
     );
 };
