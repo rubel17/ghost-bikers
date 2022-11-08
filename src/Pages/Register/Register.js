@@ -3,9 +3,10 @@ import { Link, useNavigate, useLocation  } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
+
 const Register = () => {
   const [error, setError] = useState('')
-    const { createUser, googleSignIn, githubSignIn, updateUserProfile } = useContext(AuthContext);
+    const { createUser, googleSignIn, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -35,18 +36,8 @@ const Register = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(res =>{
-            // const user = res.user;
-            // console.log(user);
-        })
-        .catch(err => console.error(err));
-    };
-
-    const handleGithubSignIn = () =>{
-        githubSignIn()
-        .then(res =>{
             const user = res.user;
             console.log(user);
-            navigate(from, {replace: true})
         })
         .catch(err => console.error(err));
     };
@@ -62,49 +53,45 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+        <div className="my-3">
+        <div className="d-lg-flex justify-content-around ">
+          <div className="text-center my-5">
             <h1  className="text-5xl font-bold">Create Your Account!</h1>
-            <p className="py-6">You uses the Educare website for learning, Please create a new Account,otherwise login your Account.</p>
 
-            <button onClick={handleGoogleSignIn } className="btn btn-outline btn-info mr-4">Google Sign In</button>
-            <button onClick={handleGithubSignIn } className="btn btn-outline btn-success"> Github Sign In</button>
-
-
-           
+            <button onClick={handleGoogleSignIn } className="btn btn-outline btn-info">Google Sign In</button>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit} className="card-body">
+          <div>
+            <form onSubmit={handleSubmit} className="border border-3 p-2 card-body">
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Full Name</span>
-                </label>
-                <input type="text" name='name' placeholder="Your Full Name" className="input input-bordered" required />
+
+              <div className="mb-3">
+                    <label className="form-label">Full Name</label>
+                    <input type="text" name='name' placeholder="Your Full Name" className="form-control" required/>
+                </div>
               </div>
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Photo URL</span>
-                </label>
-                <input type="photoURL" name='photoURL' placeholder="photo URL" className="input input-bordered" required />
+              <label className="form-label">Photo URL</label>
+                    <input type="photoURL" name='photoURL' placeholder="photo URL" className="form-control" required/>
               </div>
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input type="email" name='email' placeholder="Your Email" className="input input-bordered" required />
+              <div className="mb-3">
+                    <label className="form-label">Email address</label>
+                    <input  type="email" name='email' placeholder="Your Email"  className="form-control" required/>
+                </div>
               </div>
               <div className="form-control">
+
+               <label className="form-label">Password</label>
+                    <input type="password" name='password' placeholder="Your Password" className="form-control"  required/>
+
                 <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input type="password" name='password' placeholder="Your Password" className="input input-bordered" required />
-                <label className="label">
-                 <p>have an Account? <Link to='/account' className="label-text-alt link link-hover text-error">Please login</Link></p>
+                 <p>have an Account? <Link to='/login' className="text-danger">Please login</Link></p>
                 </label>
               </div>
-              <div className="form-control mt-6">
-                {error}
+              <div className="form-control">
+              <div className='text-danger'> 
+               {error}
+               </div>
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>

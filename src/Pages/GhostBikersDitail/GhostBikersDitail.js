@@ -14,7 +14,7 @@ const GhostBikersDitail = () => {
             <h4> <strong className='text-info'>Description:</strong> {description}</h4>
             <div className='my-4 border border-3 py-3'>
                 <h4 className='text-danger'>Review The Service and Add The Service. <br /> Add Service, Login First....</h4>
-                <Link to='/addService'><button>Add Service</button></Link>
+                <Link to='/addService'><button className='btn btn-success'>Add Service</button></Link>
             </div>
         </div>
     );

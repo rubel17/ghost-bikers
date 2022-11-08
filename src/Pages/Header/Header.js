@@ -3,11 +3,13 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
+import './Header.css';
 
 
 
 const Header = () => {
-  const {logOut} = useContext(AuthContext);
+  const {user, logOut} = useContext(AuthContext);
  
 
   const handleSignOut = () =>{
@@ -33,21 +35,24 @@ const Header = () => {
               className="d-inline-block align-top"
             />
         </Navbar.Brand>
-        <Navbar.Brand href="/">GHOST BIKERS</Navbar.Brand>
+        <Navbar.Brand>GHOST BIKERS</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="/servicesall">ServicesAll</Nav.Link>
+            <Link className='link' to="/">Home</Link>
+            <Link className='link' to="/blog">Blog</Link>
+            <Link className='link' to="/servicesall">ServicesAll</Link>
 
            
           </Nav>
           <Nav>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link onClick={handleSignOut} eventKey={2} href="/register">
-            SignOut
-            </Nav.Link>
+            <Link className='link' to="/login">Login</Link>
+            {
+            user?.uid? <Link className='link' onClick={handleSignOut}>SignOut</Link>
+            :
+            <Link className='link'  to='/register'>Register Now</Link>
+          }
+
           </Nav>
         </Navbar.Collapse>
       </Container>
