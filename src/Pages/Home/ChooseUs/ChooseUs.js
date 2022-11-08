@@ -17,7 +17,7 @@ const ChooseUs = () => {
             <div className='my-5'>
                 <Container>
                 <Row>
-                    <Col className='d-flex' sm={12} lg={4}>
+                    <Col className='d-flex mt-sm-5' sm={12} lg={4}>
                            <div className='me-3'>
                             <img src={img1} width="80px"  alt="" />
                            </div>
@@ -26,7 +26,7 @@ const ChooseUs = () => {
                             <p>We guarantee quality of our works <br/>from the  diagnostic to repairs.</p>
                            </div>
                     </Col>
-                    <Col className='d-flex' sm={12} lg={4}>
+                    <Col className='d-flex mt-sm-5' sm={12} lg={4}>
                            <div className='me-3'>
                             <img src={img2} width="80px"  alt="" />
                            </div>
@@ -35,7 +35,7 @@ const ChooseUs = () => {
                             <p>We love to take pride in the work we do. Each project is finished in time and budget</p>
                            </div>
                     </Col>
-                    <Col className='d-flex' sm={12} lg={4}>
+                    <Col className='d-flex mt-sm-5' sm={12} lg={4}>
                            <div className='me-3'>
                             <img src={img3} width="80px"  alt="" />
                            </div>
