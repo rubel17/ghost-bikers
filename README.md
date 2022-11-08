@@ -26,6 +26,7 @@
 - Hero icons.
 - Bootstrap.
 - MongoDB.
+- cdbReact.
 
 ### Authentication system(Login).
 
