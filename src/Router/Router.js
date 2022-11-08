@@ -8,6 +8,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ServicesAll from "../Pages/ServicesAll/ServicesAll";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,8 +30,11 @@ export const routers = createBrowserRouter([
                   },
             },
             {
-                path:'/addService',
-                element:<AddService></AddService>
+                path:'/addService/:id',
+                loader:({params}) =>{
+                    return fetch(`http://localhost:4000/GhostBikers/${params.id}`)
+                  },
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path:'/blog',

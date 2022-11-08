@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const GhostBikersDitail = () => {
-    const {title,price,rating, description, picture} = useLoaderData();
+    const {title,price,rating, description, picture, _id} = useLoaderData();
     return (
         <div className='text-center my-5'>
             <img className='mb-3' src={picture} style={{ width: '32rem', height:'500px' }} alt="" />
@@ -13,8 +13,8 @@ const GhostBikersDitail = () => {
             <h3 className='fs-2 fw-semibold'> <strong className='text-danger'>Title:</strong>  {title}</h3>
             <h4> <strong className='text-info'>Description:</strong> {description}</h4>
             <div className='my-4 border border-3 py-3'>
-                <h4 className='text-danger'>Review The Service and Add The Service. <br /> Add Service, Login First....</h4>
-                <Link to='/addService'><button className='btn btn-success'>Add Service</button></Link>
+                <h4 className='text-danger'>Please Login to Add a Review On Service.</h4>
+                <Link to={`/addService/${_id}`}><button className='btn btn-success'>Add Service</button></Link>
             </div>
         </div>
     );
