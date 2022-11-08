@@ -2,7 +2,6 @@ import React,  { useContext, useState } from 'react';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
-
 const Login = () => {
 
     const [error, setError] = useState('');
@@ -21,17 +20,15 @@ const Login = () => {
         .then(result =>{
             const newUser = result.user
                 console.log(newUser);
-                
                 setError('');
                 navigate(from, {replace: true});
                 form.reset();
         })
         .catch(err=>{
             console.error(err.message)
-            setError(`${err.message} Email Address or Password doesn't Match.`);
+            setError(`${err.message} Email Address or Password don't Match.`);
         })
     };
-
 
     const handleGoogleSignIn = () =>{
         googleSignIn()
@@ -42,6 +39,7 @@ const Login = () => {
         })
         .catch(err => console.error(err));
     };
+
 
     return (
         <div className='my-5'>
@@ -78,7 +76,8 @@ const Login = () => {
                </div>
                 <button className="btn btn-primary">Login</button>
               </div>
-              <Link to='/register'  className="text-danger">Create a new account?</Link>
+              <Link to='/register'  className="text-danger">Create a new account?
+              </Link>
             </form>
           </div>
         </div>

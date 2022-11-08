@@ -38,6 +38,7 @@ const Register = () => {
         .then(res =>{
             const user = res.user;
             console.log(user);
+            navigate(from, {replace: true})
         })
         .catch(err => console.error(err));
     };
@@ -57,13 +58,11 @@ const Register = () => {
         <div className="d-lg-flex justify-content-around ">
           <div className="text-center my-5">
             <h1  className="text-5xl font-bold">Create Your Account!</h1>
-
             <button onClick={handleGoogleSignIn } className="btn btn-outline btn-info">Google Sign In</button>
           </div>
           <div>
             <form onSubmit={handleSubmit} className="border border-3 p-2 card-body">
               <div className="form-control">
-
               <div className="mb-3">
                     <label className="form-label">Full Name</label>
                     <input type="text" name='name' placeholder="Your Full Name" className="form-control" required/>
@@ -80,10 +79,8 @@ const Register = () => {
                 </div>
               </div>
               <div className="form-control">
-
                <label className="form-label">Password</label>
                     <input type="password" name='password' placeholder="Your Password" className="form-control"  required/>
-
                 <label className="label">
                  <p>have an Account? <Link to='/login' className="text-danger">Please login</Link></p>
                 </label>
