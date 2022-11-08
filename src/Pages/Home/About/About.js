@@ -14,7 +14,7 @@ const About = () => {
             <h3  className='fs-3 fw-semibold my-3 text-warning'>About Us</h3>
             <h1 className='fs-1 fw-bold mb-3'>WE OVER 20 YEARS EXPERIENCE</h1>
             <p className='mb-5'>Experience refers to conscious events in general, more specifically to perceptions, or to the practical knowledge and familiarity that is produced by these conscious processes. Understood as a conscious event in the widest sense, experience involves a subject to which various items are presented.</p>
-           <Link to='/about'> <button type="button" class="btn btn-outline-warning px-5 py-3">About Us</button></Link>
+           <Link to='/about'> <button className="btn btn-outline-warning px-5 py-3">About Us</button></Link>
 
            </div>
         </div>

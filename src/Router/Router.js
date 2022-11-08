@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import AddService from "../Pages/AddService/AddService";
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import GhostBikersDitail from "../Pages/GhostBikersDitail/GhostBikersDitail";
@@ -26,6 +27,10 @@ export const routers = createBrowserRouter([
                 loader:({params}) =>{
                     return fetch(`http://localhost:4000/GhostBikers/${params.id}`)
                   },
+            },
+            {
+                path:'/addService',
+                element:<AddService></AddService>
             },
             {
                 path:'/blog',
