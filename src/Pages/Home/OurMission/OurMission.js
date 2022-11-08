@@ -4,7 +4,7 @@ import {WrenchIcon, UserIcon, SignalIcon } from '@heroicons/react/24/solid';
 
 const OurMission = () => {
     return (
-        <div className='mt-5'>
+        <div className='my-5'>
             <div className='text-center'>
             <h3 className='text-danger'>OUR MISSION</h3>
             <h1>WELCOME THE <br />

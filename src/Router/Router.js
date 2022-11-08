@@ -6,6 +6,7 @@ import GhostBikersDitail from "../Pages/GhostBikersDitail/GhostBikersDitail";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import ServicesAll from "../Pages/ServicesAll/ServicesAll";
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -25,19 +26,24 @@ export const routers = createBrowserRouter([
                 path:'/GhostBikers/:id',
                 element:<GhostBikersDitail></GhostBikersDitail>,
                 loader:({params}) =>{
-                    return fetch(`https://educare-server3.vercel.app/course/${params.id}`)
+                    return fetch(`http://localhost:4000/GhostBikers/${params.id}`)
                   },
             },
             {
-                path:'/checkout/:id',
+                path:'/GhostBikers/:id',
                 element:<PrivateRoute></PrivateRoute>,
                 loader:({params}) =>{
-                    return fetch(`https://educare-server3.vercel.app/course/${params.id}`)
+                    return fetch(`http://localhost:4000/GhostBikers/${params.id}`)
                   },
             },
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'/servicesall',
+                element:<ServicesAll></ServicesAll>,
+                loader:() => fetch('http://localhost:4000/GhostBikers')
             },
             {
                 path:'/login',
