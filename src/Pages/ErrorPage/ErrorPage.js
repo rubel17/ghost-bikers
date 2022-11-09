@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
   return (
-    <section className=' flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
-      <div className='error-img container flex flex-col items-center justify-center px-5 mx-auto my-8'>
+    <section className='w-50 mx-auto pt-2'>
+      <div className='w-75'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 512 512'
@@ -31,17 +31,16 @@ const ErrorPage = () => {
             points='383.958 182.63 360.042 161.37 338.671 185.412 314.63 164.042 293.37 187.958 317.412 209.329 296.042 233.37 319.958 254.63 341.329 230.588 365.37 251.958 386.63 228.042 362.588 206.671 383.958 182.63'
           ></polygon>
         </svg>
-        <div className='max-w-md text-center'>
-          <h2 className='mb-8 font-extrabold text-9xl text-gray-600'>
-            <span className='sr-only'>Error</span>404
+        <div className='text-center'>
+          <h2 className='text-info'>
+            <span>Error</span>404
           </h2>
-          <p className='text-2xl font-semibold md:text-3xl mb-8'>
+          <p className='text-danger'>
             Sorry, we couldn't find this page.
           </p>
           <Link
             to='/'
-            className='link px-8 py-3 font-semibold rounded bg-cyan-200 text-gray-900'
-          >
+            className='btn btn-primary mb-5'>
             Back to homepage
           </Link>
         </div>
