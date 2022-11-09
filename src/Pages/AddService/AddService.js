@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddService = () => {
     const {title, price, _id} = useLoaderData()
@@ -25,7 +27,7 @@ const AddService = () => {
 
         }
         if(!images){
-            alert('Places Input One Image')
+            toast.error('Places Input One Image');
         }
         else{
             fetch('http://localhost:4000/reviewData',{
@@ -39,7 +41,7 @@ const AddService = () => {
             .then(data =>{
                 // console.log(data)
                 if(data.acknowledged){
-                    alert('Review Placed Successfully')
+                    toast.success('Review Placed Successfully');
                     form.reset();
                 }
             })
@@ -63,7 +65,7 @@ const AddService = () => {
             </div>
             <div className="mb-3">
                 <label className="form-label">Add Images</label>
-                <input type="images" name='images' placeholder='Your Images' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                <input type="images" name='images' placeholder='Your Images' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Email address</label>
@@ -76,6 +78,7 @@ const AddService = () => {
             
             
             <button type="submit" className="btn btn-primary">Add Review</button>
+            <ToastContainer />
         </form>
         </div>
        </div>

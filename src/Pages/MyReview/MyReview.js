@@ -12,6 +12,8 @@ const MyReview = () => {
     const{email} = user;
     const [reviews, setReviews]= useState([])
 
+
+    //delete review
     const handleDeleteReview = id =>{
         const proceed = window.confirm('Are You Sure, You want to Delete this Review');
         if(proceed){
@@ -32,8 +34,9 @@ const MyReview = () => {
         // console.log('delete',id)
     }
 
-    const handleUpdateReview = id =>{
-        fetch(`http://localhost:4000/reviewData/${id}`,{
+        //change status review.
+        const handleStatusReview = id =>{
+            fetch(`http://localhost:4000/reviewData/${id}`,{
                 method:'PATCH',
                 headers:{
                     'content-type':'application/json'
@@ -42,7 +45,7 @@ const MyReview = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data)
+                // console.log(data)
                 if(data.modifiedCount > 0){
                     toast.success("Update Successfully");
                     const remaining = reviews.filter(review => review._id !== id);
@@ -54,7 +57,6 @@ const MyReview = () => {
                 }
             })
     }
-
 
     useEffect(()=>{
         fetch(`http://localhost:4000/reviewData?email=${user.email}`)
@@ -83,8 +85,8 @@ const MyReview = () => {
             key={review._id}
             review={review}
             handleDeleteReview={handleDeleteReview}
-            handleUpdateReview={handleUpdateReview}
             ToastContainer = {ToastContainer}
+            handleStatusReview = {handleStatusReview}
             ></SingleReview>)
        }
       </tbody>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const SingleReview = ({review, handleDeleteReview, handleUpdateReview, ToastContainer }) => {
+const SingleReview = ({review, handleDeleteReview,handleStatusReview, ToastContainer }) => {
     const {price,serviceName, images, _id, status} = review;
 
 
@@ -15,14 +15,16 @@ const SingleReview = ({review, handleDeleteReview, handleUpdateReview, ToastCont
         <td> <img src={images} style={{ width: '6rem', height: '60px', marginRight:'10px' }} alt=''/> {serviceName}</td>
 
         <td>
-            <Link onClick={()=>handleUpdateReview(_id)} to='/editReview'>Edit</Link>
-            <ToastContainer />
+            <Link to={`/editReview/${_id}`}><button className='btn'>Edit</button></Link>
          </td>
+
         <td>{price}</td>
+
         <td>
-            <Link onClick={()=>handleUpdateReview(_id)}>{status? status : 'pending'}</Link>
+            <Link onClick={()=>handleStatusReview(_id)}>{status? status : 'pending'}</Link>
             <ToastContainer />
         </td>
+
       </tr>
     );
 };

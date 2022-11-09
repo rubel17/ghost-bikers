@@ -1,34 +1,64 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditReview = () => {
-    const {user} = useContext(AuthContext)
+    const reviews = useLoaderData();
+    const [user, setUser] = useState(reviews);
+
+
+         //update review.
+        const handleUpdatesReview = event =>{
+            event.preventDefault();
+            fetch(`http://localhost:4000/reviewData/${reviews?._id}`,{
+                method:'PATCH',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res =>res.json())
+            .then(data =>{
+                console.log(data)
+                toast.success("Update Successfully");
+            })
+
+            
+    };
+
+    const handleInputChange = event =>{
+        const field = event.target.name;
+        const value = event.target.value;
+        const newReview = {...user};
+        newReview[field] = value;
+        setUser(newReview);
+    };
+
+
     return (
         <div className='m-2 p-3 w-50 mx-auto border border-4 border-primary'>
             <h4>Edit Your Review</h4>
 
-            <form>
+            <form onSubmit={handleUpdatesReview}>
             <div className="mb-3">
-                <label className="form-label">Your Name</label>
-                <input type="text" name='name' placeholder='Your Name' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                <label className="form-label">Service Name</label>
+                <input onChange={handleInputChange} defaultValue={reviews?.serviceName} type="text" name='serviceName' placeholder='Service Name' className="form-control"/>
             </div>
             <div className="mb-3">
-                <label className="form-label">Add Images</label>
-                <input type="images" name='images' placeholder='Your Images' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                <label className="form-label">Status</label>
+                <input onChange={handleInputChange} defaultValue={reviews?.status} type="status" name='status' placeholder='your status' className="form-control"/>
             </div>
+           
             <div className="mb-3">
                 <label className="form-label">Email address</label>
-                <input type="email" name='email' placeholder='Your Email' defaultValue={user?.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readOnly/>
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Add Message Info</label>
-                <input type="text" name='message' placeholder='Message Info Area' className="py-5 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+                <input onChange={handleInputChange} type="email" name='email' placeholder='Your Email' defaultValue={reviews?.email} className="form-control"/>
             </div>
             
-            
+            <ToastContainer />
             <button type="submit" className="btn btn-primary">Update Review</button>
         </form>
-        
+
         </div>
     );
 };
