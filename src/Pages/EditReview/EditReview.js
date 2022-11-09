@@ -46,11 +46,6 @@ const EditReview = () => {
                 <input onChange={handleInputChange} defaultValue={reviews?.serviceName} type="text" name='serviceName' placeholder='Service Name' className="form-control"/>
             </div>
             <div className="mb-3">
-                <label className="form-label">Status</label>
-                <input onChange={handleInputChange} defaultValue={reviews?.status} type="status" name='status' placeholder='your status' className="form-control"/>
-            </div>
-           
-            <div className="mb-3">
                 <label className="form-label">Email address</label>
                 <input onChange={handleInputChange} type="email" name='email' placeholder='Your Email' defaultValue={reviews?.email} className="form-control"/>
             </div>

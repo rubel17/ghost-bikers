@@ -52,12 +52,12 @@ const AddService = () => {
 
     return (
         <div>
-            <div className='text-center'> 
+            <div className='text-center m-3'> 
             <h5>Title:{title}</h5>
                 <p>Price:{price}</p>
             </div>
           <div className='m-2 p-3 w-50 mx-auto border border-4 border-primary'>
-          <h4>Add Your Services</h4>
+          <h4>Add Your Reviews</h4>
             <form onSubmit={handlePlaceReview}>
             <div className="mb-3">
                 <label className="form-label">Your Name</label>

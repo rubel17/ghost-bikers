@@ -43,14 +43,16 @@ const Header = () => {
             <Link className='link' to="/blog">Blog</Link>
             <Link className='link' to="/servicesall">ServicesAll</Link>
             {
-              user?<Link className='link' to='/myReview'>My Review</Link> : ''
+              user?<Link className='link' to='/myReview'>My Reviews</Link> : ''
 
             }
 
            
           </Nav>
           <Nav>
-            <Link className='link' to="/login">Login</Link>
+            {
+              user? <Link className='link' to="/allReviews">All Reviews</Link> : <Link className='link' to="/login">Login</Link>
+            }
             {
             user?.uid? <Link className='link' onClick={handleSignOut}>SignOut</Link>
             :

@@ -12,7 +12,6 @@ const MyReview = () => {
     const{email} = user;
     const [reviews, setReviews]= useState([])
 
-
     //delete review
     const handleDeleteReview = id =>{
         const proceed = window.confirm('Are You Sure, You want to Delete this Review');
@@ -22,7 +21,6 @@ const MyReview = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-             console.log(data)
                 if(data.deletedCount > 0){
                     toast.success("Delete Successfully");
                   const remaining = reviews.filter(review =>review._id !== id);
@@ -31,31 +29,6 @@ const MyReview = () => {
                 }
             })
         }
-        // console.log('delete',id)
-    }
-
-        //change status review.
-        const handleStatusReview = id =>{
-            fetch(`http://localhost:4000/reviewData/${id}`,{
-                method:'PATCH',
-                headers:{
-                    'content-type':'application/json'
-                },
-                body: JSON.stringify({status: 'Approved'})
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                // console.log(data)
-                if(data.modifiedCount > 0){
-                    toast.success("Update Successfully");
-                    const remaining = reviews.filter(review => review._id !== id);
-                    const approve = reviews.find(review=>review._id === id);
-                    approve.status = "Approved"
-
-                    const newReview = [approve, ...remaining];
-                    setReviews(newReview);
-                }
-            })
     }
 
     useEffect(()=>{
@@ -63,35 +36,39 @@ const MyReview = () => {
         .then(res =>res.json())
         .then(data =>setReviews(data))
     },[user?.email]);
-    // console.log(reviews)
 
     return (
         <div>
-            <h3>{user?.email? email :'My'} - Review : {reviews.length}</h3>
+           {reviews.length?
+           <>
+           <h3>{user?.email? email :'My'} - Review : {reviews.length}</h3>
             <Table>
-                <thead>
-                    <tr>
-                    <th>Cancel</th>
-                    <th>Service</th>
-                    <th>Review</th>
-                    <th>Price</th>
-                    <th>Message</th>
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                <th>Cancel</th>
+                <th>Service</th>
+                <th>Review</th>
+                <th>Price</th>
+                </tr>
+            </thead>
 
-      <tbody>
-      {
-            reviews.map(review =><SingleReview
-            key={review._id}
-            review={review}
-            handleDeleteReview={handleDeleteReview}
-            ToastContainer = {ToastContainer}
-            handleStatusReview = {handleStatusReview}
-            ></SingleReview>)
-       }
-      </tbody>
-    </Table>
+            <tbody>
+            {
+        reviews.map(review =><SingleReview
+        key={review._id}
+        review={review}
+        handleDeleteReview={handleDeleteReview}
+        ToastContainer = {ToastContainer}
+        ></SingleReview>)
+        }
+        </tbody>
+        </Table> </> :
+        <div>
+            <h3 className='text-warning text-center my-5 py-5'>'No reviews were added'</h3>
         </div>
+        }
+        <ToastContainer />
+    </div>
     );
 };
 
