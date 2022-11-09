@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import SingleReview from '../SingleReview/SingleReview';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 
 
@@ -11,6 +12,7 @@ const MyReview = () => {
     const {user} =useContext(AuthContext)
     const{email} = user;
     const [reviews, setReviews]= useState([])
+    useTitle('My Review');
 
     //delete review
     const handleDeleteReview = id =>{

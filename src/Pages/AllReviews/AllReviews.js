@@ -2,9 +2,11 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllReview from './AllReview';
 import Table from 'react-bootstrap/Table';
+import useTitle from '../../hooks/useTitle';
 
 const AllReviews = () => {
     const reviews = useLoaderData([]);
+    useTitle('All Reviews');
 
     return (
         <div className='w-75 mx-auto border p-2'>

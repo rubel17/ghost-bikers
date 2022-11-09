@@ -3,8 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 const AddService = () => {
+    useTitle('Add Service');
     const {title, price, _id} = useLoaderData()
     const {user} = useContext(AuthContext)
 

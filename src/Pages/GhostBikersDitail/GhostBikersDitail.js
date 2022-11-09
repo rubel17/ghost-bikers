@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const GhostBikersDitail = () => {
-    const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext);
+    
+    useTitle('Ghost Bikers');
     const {title,price,rating, description, picture, _id} = useLoaderData();
     return (
         <div className='text-center my-5'>

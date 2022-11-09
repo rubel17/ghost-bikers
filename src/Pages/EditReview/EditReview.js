@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 const EditReview = () => {
     const reviews = useLoaderData();
     const [user, setUser] = useState(reviews);
+    useTitle('Edit Review')
 
 
          //update review.

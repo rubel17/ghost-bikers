@@ -7,9 +7,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import useTitle from '../../hooks/useTitle';
 
 const ServicesAll = () => {
     const allData = useLoaderData();
+    useTitle('ServicesAll');
     return (
         <div>
             <Container >
