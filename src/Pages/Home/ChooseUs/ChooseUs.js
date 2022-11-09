@@ -14,7 +14,7 @@ const ChooseUs = () => {
         <div className='my-3'>
             <h1 className='text-center text-success'>Six reasons why choose us</h1>
             <hr className='w-50 mx-auto' />
-            <div className='my-5'>
+            <div className='ms-5 ms-lg-0 my-5'>
                 <Container>
                 <Row>
                     <Col className='d-flex mt-sm-5' sm={12} lg={4}>

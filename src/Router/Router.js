@@ -2,10 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import AddService from "../Pages/AddService/AddService";
 import Blog from "../Pages/Blog/Blog";
+import EditReview from "../Pages/EditReview/EditReview";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import GhostBikersDitail from "../Pages/GhostBikersDitail/GhostBikersDitail";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyReview from "../Pages/MyReview/MyReview";
 import Register from "../Pages/Register/Register";
 import ServicesAll from "../Pages/ServicesAll/ServicesAll";
 import PrivateRoute from "./PrivateRoute";
@@ -44,6 +46,15 @@ export const routers = createBrowserRouter([
                 path:'/servicesall',
                 element:<ServicesAll></ServicesAll>,
                 loader:() => fetch('http://localhost:4000/GhostBikers')
+            },
+            {
+                path:'/myReview',
+                loader:() => fetch('http://localhost:4000/'),
+                element:<PrivateRoute><MyReview></MyReview></PrivateRoute>
+            },
+            {
+                path:'/editReview',
+                element:<PrivateRoute><EditReview></EditReview></PrivateRoute>
             },
             {
                 path:'/login',

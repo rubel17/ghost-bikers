@@ -7,11 +7,11 @@ const OurMission = () => {
         <div className='my-5'>
             <div className='text-center'>
             <h3 className='text-danger'>OUR MISSION</h3>
-            <h1>WELCOME THE <br />
+            <h1 className='fs-1 fw-bold'>WELCOME THE <br />
                 EYES OF WEST WIND</h1>
                 <hr className='w-75 mx-auto' />
             </div>
-            <div className='mt-5  d-lg-flex justify-content-around'>
+            <div className='mt-5  ms-5 ms-lg-0  d-lg-flex justify-content-around'>
            
            <Card className='bg-secondary mt-3' border="primary" style={{ width: '18rem', height: '300px' }}>
                 <Card.Body className='text-light'>

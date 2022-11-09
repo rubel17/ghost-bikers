@@ -42,6 +42,10 @@ const Header = () => {
             <Link className='link' to="/">Home</Link>
             <Link className='link' to="/blog">Blog</Link>
             <Link className='link' to="/servicesall">ServicesAll</Link>
+            {
+              user?<Link className='link' to='/myReview'>My Review</Link> : ''
+
+            }
 
            
           </Nav>

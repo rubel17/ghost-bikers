@@ -16,7 +16,7 @@ const Services = () => {
         <h2 className='text-center text-success'>Our Services</h2>
         <h4 className='text-center text-warning'>WE PROVIDE BEST CUSTOM MOTORCYCLE</h4>
         <hr className='w-75 mx-auto' />
-          <div  className='d-lg-flex justify-content-around my-3'>
+          <div  className='ms-5 ms-lg-0 d-lg-flex justify-content-around my-3'>
            {
             loadData?.map(lData =><Service 
             key={lData._id}
