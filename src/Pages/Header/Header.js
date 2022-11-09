@@ -40,7 +40,7 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link className='link' to="/">Home</Link>
-            <Link className='link' to="/blog">Blog</Link>
+            <Link className='link' to="/blog">Blogs</Link>
             <Link className='link' to="/servicesall">ServicesAll</Link>
             {
               user?<Link className='link' to='/myReview'>My Reviews</Link> : ''

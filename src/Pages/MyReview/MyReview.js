@@ -38,7 +38,7 @@ const MyReview = () => {
     },[user?.email]);
 
     return (
-        <div>
+        <div className='w-75 mx-auto border border-5 p-2 m-3'>
            {reviews.length?
            <>
            <h3>{user?.email? email :'My'} - Review : {reviews.length}</h3>
@@ -58,7 +58,6 @@ const MyReview = () => {
         key={review._id}
         review={review}
         handleDeleteReview={handleDeleteReview}
-        ToastContainer = {ToastContainer}
         ></SingleReview>)
         }
         </tbody>
