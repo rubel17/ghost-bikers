@@ -28,11 +28,30 @@ const Login = () => {
         console.log(email,password)
         logInUser(email, password)
         .then(result =>{
-            const newUser = result.user
-                console.log(newUser);
+            const user = result.user;
                 setError('');
-                navigate(from, {replace: true});
-                form.reset();
+
+              const currentUser = {
+                email:user.email
+              }
+              console.log(currentUser);
+
+              fetch('http://localhost:4000/jwt',{
+                method:'POST',
+                headers:{
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify(currentUser)
+            })
+            .then(res =>res.json())
+            .then(data =>{
+              console.log(data);
+              localStorage.setItem('token', data.token);
+              navigate(from, {replace: true});
+              form.reset();
+            })
+ 
         })
         .catch(err=>{
             console.error(err.message)

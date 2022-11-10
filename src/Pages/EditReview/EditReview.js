@@ -16,7 +16,8 @@ const EditReview = () => {
             fetch(`https://ghost-bikers-server.vercel.app/reviewData/${reviews?._id}`,{
                 method:'PATCH',
                 headers:{
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify(user)
             })

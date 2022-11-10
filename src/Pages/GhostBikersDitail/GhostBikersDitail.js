@@ -26,8 +26,8 @@ const GhostBikersDitail = () => {
             </div>
 
             </div>
-            <div className='mx-auto d-flex align-items-center'>
-               <div className='border p-5 border-3'>
+            <div className='mb-5 mx-auto d-flex align-items-center justify-content-start'>
+               <div className='border p-5 border-3 mb-5'>
                {
                     user?<h4 className='text-danger'>Click The Button</h4> : <h4 className='text-danger'>Please Login.</h4>
                 }

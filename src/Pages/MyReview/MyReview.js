@@ -9,7 +9,7 @@ import useTitle from '../../hooks/useTitle';
 
 
 const MyReview = () => {
-    const {user} =useContext(AuthContext)
+    const {user, logOut} =useContext(AuthContext)
     const{email} = user;
     const [reviews, setReviews]= useState([])
     useTitle('My Review');
@@ -34,10 +34,20 @@ const MyReview = () => {
     }
 
     useEffect(()=>{
-        fetch(`https://ghost-bikers-server.vercel.app/reviewData?email=${user.email}`)
-        .then(res =>res.json())
+        fetch(`http://localhost:4000/reviewData?email=${user.email}`,{
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(res =>{
+
+            if(res.status === 401 || res.status === 403){
+               return logOut();
+            }
+         return res.json();
+        })
         .then(data =>setReviews(data))
-    },[user?.email]);
+    },[user?.email, logOut]);
 
     return (
         <div className='w-75 mx-auto border border-5 p-2 m-3'>

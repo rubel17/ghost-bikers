@@ -35,7 +35,8 @@ const AddReview = () => {
             fetch('https://ghost-bikers-server.vercel.app/reviewData',{
                 method:'POST',
                 headers:{
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify(order)
             })
