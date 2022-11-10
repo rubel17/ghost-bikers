@@ -8,10 +8,18 @@ import useTitle from '../../hooks/useTitle';
 const Register = () => {
   const [error, setError] = useState('')
   useTitle('Register');
-    const { createUser, googleSignIn, updateUserProfile } = useContext(AuthContext);
+    const {loading, createUser, googleSignIn, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    if(loading){
+      return <div className='text-center'>
+          <div className="spinner-border m-5" role="status">
+         <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+  }
 
     const handleSubmit = (event) =>{
         event.preventDefault();

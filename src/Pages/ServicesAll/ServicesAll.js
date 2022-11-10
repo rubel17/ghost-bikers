@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,10 +8,21 @@ import Button from 'react-bootstrap/esm/Button';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import useTitle from '../../hooks/useTitle';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const ServicesAll = () => {
     const allData = useLoaderData();
+    const {loading} = useContext(AuthContext)
     useTitle('ServicesAll');
+
+    if(loading){
+        return <div className='text-center'>
+            <div className="spinner-border m-5" role="status">
+           <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+    }
+    
     return (
         <div>
             <Container >

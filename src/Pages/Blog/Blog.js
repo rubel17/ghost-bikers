@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
     useTitle('Blogs');
+    const{loading} = useContext(AuthContext);
+
+    if(loading){
+        return <div className='text-center'>
+            <div className="spinner-border m-5" role="status">
+           <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+    }
     return (
         <div className='w-75 mx-auto m-2'>
             <div>
