@@ -4,9 +4,18 @@
 
 ## Website Link.
 
-- LiveURL:
-- ServerURL:
-- ClientURL:
+- LiveURL: https://ghost-bikers.web.app/
+- ServerURL: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-RubelRk
+- ClientURL: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-RubelRk
+
+## Why Choose Us(GHOST BIKERS).
+
+- Online services.
+- Premium quality.
+- Free Consultations.
+- Dependable Services.
+- Reputable Company.
+- Exclusive offers.
 
 ## Project Description.
 
@@ -17,8 +26,6 @@
 - Motorcycle Headlight.
 - Bike Security Alarm System setup.
 - Best Garage in The City.
-- two or three wheeled motor vehicle.Motorcycle design varies greatly to suit a range of different purposes
-- The 1885 Daimler Reitwagen made by Gottlieb Daimler and Wilhelm Maybach in Germany was the first internal combustion, petroleum-fueled motorcycle.
 
 ## Technologies use and Installation.
 

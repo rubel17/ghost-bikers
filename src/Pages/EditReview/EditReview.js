@@ -13,7 +13,7 @@ const EditReview = () => {
          //update review.
         const handleUpdatesReview = event =>{
             event.preventDefault();
-            fetch(`http://localhost:4000/reviewData/${reviews?._id}`,{
+            fetch(`https://ghost-bikers-server.vercel.app/reviewData/${reviews?._id}`,{
                 method:'PATCH',
                 headers:{
                     'content-type': 'application/json'

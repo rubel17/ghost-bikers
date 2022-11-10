@@ -18,7 +18,7 @@ const MyReview = () => {
     const handleDeleteReview = id =>{
         const proceed = window.confirm('Are You Sure, You want to Delete this Review');
         if(proceed){
-            fetch(`http://localhost:4000/reviewData/${id}`,{
+            fetch(`https://ghost-bikers-server.vercel.app/reviewData/${id}`,{
                 method:'DELETE',
             })
             .then(res=>res.json())
@@ -34,7 +34,7 @@ const MyReview = () => {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/reviewData?email=${user.email}`)
+        fetch(`https://ghost-bikers-server.vercel.app/reviewData?email=${user.email}`)
         .then(res =>res.json())
         .then(data =>setReviews(data))
     },[user?.email]);

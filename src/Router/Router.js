@@ -29,13 +29,13 @@ export const routers = createBrowserRouter([
                 path:'/GhostBikers/:id',
                 element:<GhostBikersDitail></GhostBikersDitail>,
                 loader:({params}) =>{
-                    return fetch(`http://localhost:4000/GhostBikers/${params.id}`)
+                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
                   },
             },
             {
                 path:'/addService/:id',
                 loader:({params}) =>{
-                    return fetch(`http://localhost:4000/GhostBikers/${params.id}`)
+                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
                   },
                 element:<PrivateRoute><AddService></AddService></PrivateRoute>
             },
@@ -46,7 +46,7 @@ export const routers = createBrowserRouter([
             {
                 path:'/servicesall',
                 element:<ServicesAll></ServicesAll>,
-                loader:() => fetch('http://localhost:4000/GhostBikers')
+                loader:() => fetch('https://ghost-bikers-server.vercel.app/GhostBikers')
             },
             {
                 path:'/myReview',
@@ -55,13 +55,13 @@ export const routers = createBrowserRouter([
             {
                 path:'/allReviews',
                 element:<PrivateRoute><AllReviews></AllReviews></PrivateRoute>,
-                loader:() => fetch('http://localhost:4000/reviewData'),
+                loader:() => fetch('https://ghost-bikers-server.vercel.app/reviewData'),
             },
             {
                 path:'/editReview/:id',
                 element:<PrivateRoute><EditReview></EditReview></PrivateRoute>,
                 loader:({params}) =>{
-                    return fetch(`http://localhost:4000/reviewData/${params.id}`)
+                    return fetch(`https://ghost-bikers-server.vercel.app/reviewData/${params.id}`)
                   },
             },
             {

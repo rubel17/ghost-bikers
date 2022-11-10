@@ -32,7 +32,7 @@ const AddService = () => {
             toast.error('Places Input One Image');
         }
         else{
-            fetch('http://localhost:4000/reviewData',{
+            fetch('https://ghost-bikers-server.vercel.app/reviewData',{
                 method:'POST',
                 headers:{
                     'content-type': 'application/json'
