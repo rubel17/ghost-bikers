@@ -41,15 +41,14 @@ const Header = () => {
           <Nav className="me-auto">
             <Link className='link' to="/">Home</Link>
             <Link className='link' to="/blog">Blogs</Link>
-            <Link className='link' to="/servicesall">ServicesAll</Link>
-            {
+            <Link className='link' to="/servicesall">Services All</Link>
+          </Nav>
+          
+          <Nav>
+          {
               user?<Link className='link' to='/myReview'>My Reviews</Link> : ''
 
             }
-
-           
-          </Nav>
-          <Nav>
             {
               user? <Link className='link' to="/allReviews">All Reviews</Link> : <Link className='link' to="/login">Login</Link>
             }

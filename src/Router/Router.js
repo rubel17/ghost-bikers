@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import AddReview from "../Pages/AddReview/AddReview";
 import AddService from "../Pages/AddService/AddService";
 import AllReviews from "../Pages/AllReviews/AllReviews";
 import Blog from "../Pages/Blog/Blog";
@@ -24,21 +25,6 @@ export const routers = createBrowserRouter([
                 path:'/',
                 element:<Home></Home>
             },
-          
-            {
-                path:'/GhostBikers/:id',
-                element:<GhostBikersDitail></GhostBikersDitail>,
-                loader:({params}) =>{
-                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
-                  },
-            },
-            {
-                path:'/addService/:id',
-                loader:({params}) =>{
-                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
-                  },
-                element:<PrivateRoute><AddService></AddService></PrivateRoute>
-            },
             {
                 path:'/blog',
                 element:<Blog></Blog>
@@ -47,6 +33,27 @@ export const routers = createBrowserRouter([
                 path:'/servicesall',
                 element:<ServicesAll></ServicesAll>,
                 loader:() => fetch('https://ghost-bikers-server.vercel.app/GhostBikers')
+            },
+            {
+                path:'/GhostBikers/:id',
+                element:<GhostBikersDitail></GhostBikersDitail>,
+                loader:({params}) =>{
+                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
+                  },
+            },
+            {
+                path:'/AddServices/:id',
+                loader:({params}) =>{
+                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
+                  },
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>
+            },
+            {
+                path:'/AddReview/:id',
+                loader:({params}) =>{
+                    return fetch(`https://ghost-bikers-server.vercel.app/GhostBikers/${params.id}`)
+                  },
+                element:<PrivateRoute><AddReview></AddReview></PrivateRoute>
             },
             {
                 path:'/myReview',

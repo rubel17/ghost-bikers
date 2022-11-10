@@ -7,41 +7,43 @@ import useTitle from '../../hooks/useTitle';
 
 const AddService = () => {
     useTitle('Add Service');
-    const {title, price, _id} = useLoaderData()
+    const {title, price, _id, rating, description} = useLoaderData();
     const {user} = useContext(AuthContext)
 
-    const handlePlaceReview =event =>{
+    const handlePlaceServices =event =>{
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        const title = form.title.value;
         const email = user?.email || 'No Email';
-        const images = form.images.value;
-        const message = form.message.value;
+        const picture = form.picture.value;
+        const description = form.description.value;
+        const rating = form.rating.value;
 
-        const order ={
+        const orders ={
                 service: _id,
                 serviceName:title,
                 price,
-                customer:name,
+                title,
                 email,
-                images,
-                message
+                picture,
+                description,
+                rating
 
         }
-        if(!images){
+        if(!picture){
             toast.error('Places Input One Image');
         }
         else{
-            fetch('https://ghost-bikers-server.vercel.app/reviewData',{
+            fetch('https://ghost-bikers-server.vercel.app/GhostBikers',{
                 method:'POST',
                 headers:{
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(order)
+                body: JSON.stringify(orders)
             })
             .then(res =>res.json())
             .then(data =>{
-                // console.log(data)
+                console.log(data)
                 if(data.acknowledged){
                     toast.success('Review Placed Successfully');
                     form.reset();
@@ -59,27 +61,31 @@ const AddService = () => {
                 <p>Price:{price}</p>
             </div>
           <div className='m-2 p-3 w-50 mx-auto border border-4 border-primary'>
-          <h4>Add Your Reviews</h4>
-            <form onSubmit={handlePlaceReview}>
+          <h4>Add Your Service</h4>
+            <form onSubmit={handlePlaceServices}>
             <div className="mb-3">
-                <label className="form-label">Your Name</label>
-                <input type="text" name='name' placeholder='Your Name' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                <label className="form-label">Your title</label>
+                <input defaultValue={title} type="text" name='title' placeholder='Your title' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
             </div>
             <div className="mb-3">
                 <label className="form-label">Add Images</label>
-                <input type="images" name='images' placeholder='Your Images' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                <input type="picture" name='picture' placeholder='Your picture' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Email address</label>
-                <input type="email" name='email' placeholder='Your Email' defaultValue={user?.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readOnly/>
+                <input type="email" name='email' placeholder='Your Email' defaultValue={user?.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
             </div>
             <div className="mb-3">
-                <label className="form-label">Add Message Info</label>
-                <input type="text" name='message' placeholder='Message Info Area' className="py-5 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+                <label className="form-label">Rating</label>
+                <input type="numver" name='rating' placeholder='Rating' defaultValue={rating} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Add Description</label>
+                <input defaultValue={description} type="text" name='description' placeholder='Description Area' className="py-5 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
             </div>
             
             
-            <button type="submit" className="btn btn-primary">Add Review</button>
+            <button type="submit" className="btn btn-primary">Add Service</button>
             <ToastContainer />
         </form>
         </div>
