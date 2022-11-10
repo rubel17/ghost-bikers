@@ -34,7 +34,7 @@ const MyReview = () => {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/reviewData?email=${user.email}`,{
+        fetch(`https://ghost-bikers-server.vercel.app/reviewData?email=${user.email}`,{
             headers:{
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }

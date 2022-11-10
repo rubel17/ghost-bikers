@@ -33,6 +33,7 @@ const AddService = () => {
         if(!picture){
             toast.error('Places Input One Image');
         }
+        //https://ghost-bikers-server.vercel.app
         else{
             fetch('https://ghost-bikers-server.vercel.app/GhostBikers',{
                 method:'POST',

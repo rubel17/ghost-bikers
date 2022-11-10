@@ -9,10 +9,10 @@ const Service = ({lData}) => {
     const {description, picture, title, price, rating, _id} = lData;
     return (
         <div className='my-sm-5'>
-         <Card style={{ width: '18rem', height:'500px' }}>
+         <Card style={{ width: '22rem', height:'500px' }}>
             <PhotoProvider>
                 <PhotoView src={picture}>
-                <Card.Img style={{height:'300px' }} variant="top" src={picture}/>
+                <Card.Img style={{height:'230px' }} variant="top" src={picture}/>
                 </PhotoView>
                 </PhotoProvider>
          <Card.Body>

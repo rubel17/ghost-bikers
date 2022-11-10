@@ -15,7 +15,6 @@ import ServicesAll from "../Pages/ServicesAll/ServicesAll";
 import PrivateRoute from "./PrivateRoute";
 
 
-
 export const routers = createBrowserRouter([
     {
         path:'/',
@@ -62,7 +61,7 @@ export const routers = createBrowserRouter([
             {
                 path:'/allReviews',
                 element:<PrivateRoute><AllReviews></AllReviews></PrivateRoute>,
-                loader:() => fetch('https://ghost-bikers-server.vercel.app/reviewData'),
+                loader:() => fetch('https://ghost-bikers-server.vercel.app/reviewDatas'),
             },
             {
                 path:'/editReview/:id',

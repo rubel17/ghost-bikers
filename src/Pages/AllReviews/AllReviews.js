@@ -5,8 +5,9 @@ import Table from 'react-bootstrap/Table';
 import useTitle from '../../hooks/useTitle';
 
 const AllReviews = () => {
-    const reviews = useLoaderData([]);
-    useTitle('All Reviews');
+    const reviews = useLoaderData({});
+    console.log(reviews);
+    useTitle('All Review');
 
     return (
         <div className='w-75 mx-auto border p-2'>
@@ -21,6 +22,7 @@ const AllReviews = () => {
             </thead>
 
             <tbody>
+
             {
         reviews.map(review =><AllReview
             key={review._id}

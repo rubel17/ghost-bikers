@@ -36,7 +36,7 @@ const Login = () => {
               }
               console.log(currentUser);
 
-              fetch('http://localhost:4000/jwt',{
+              fetch('https://ghost-bikers-server.vercel.app/jwt',{
                 method:'POST',
                 headers:{
                     'content-type': 'application/json',
