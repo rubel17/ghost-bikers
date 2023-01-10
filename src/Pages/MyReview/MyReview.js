@@ -20,6 +20,10 @@ const MyReview = () => {
         if(proceed){
             fetch(`https://ghost-bikers-server.vercel.app/reviewData/${id}`,{
                 method:'DELETE',
+                headers:{
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
             })
             .then(res=>res.json())
             .then(data=>{

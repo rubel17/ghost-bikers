@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const About = () => {
     return (
         <div className='d-lg-flex mb-5'>
-           <div className='w-50 mt-sm-5 position-relative'>
-            <img className='ms-2' src={image1} width="500px" alt=""/>
+           <div className='w-50 mt-sm-5 mb-5 pb-5 position-relative'>
+            <img className='ms-3' src={image1} width="500px" alt=""/>
             <img className='d-flex justify-content-end position-absolute start-50 top-50 pe-2 border-start border-top border-5 border-white'  width="250px" height="220px" src={image2} alt=""/>
            </div>
            <div className='ms-5 ms-lg-0 w-50 my-sm-5'>

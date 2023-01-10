@@ -10,7 +10,7 @@ const AllReviews = () => {
     useTitle('All Review');
 
     return (
-        <div className='w-75 mx-auto border p-2'>
+        <div className='border border-1 m-md-5 p-2'>
             <Table>
             <thead>
                 <tr>

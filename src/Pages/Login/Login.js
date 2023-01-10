@@ -29,13 +29,11 @@ const Login = () => {
         logInUser(email, password)
         .then(result =>{
             const user = result.user;
-                setError('');
-
+            setError('');
               const currentUser = {
                 email:user.email
               }
               console.log(currentUser);
-
               fetch('https://ghost-bikers-server.vercel.app/jwt',{
                 method:'POST',
                 headers:{
@@ -51,7 +49,6 @@ const Login = () => {
               navigate(from, {replace: true});
               form.reset();
             })
- 
         })
         .catch(err=>{
             console.error(err.message)
@@ -68,6 +65,9 @@ const Login = () => {
         })
         .catch(err => console.error(err));
     };
+
+
+
 
 
     return (

@@ -8,7 +8,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 const Service = ({lData}) => {
     const {description, picture, title, price, rating, _id} = lData;
     return (
-        <div className='my-sm-5'>
+        <div className='my-sm-5 mb-5'>
          <Card style={{ width: '22rem', height:'500px' }}>
             <PhotoProvider>
                 <PhotoView src={picture}>

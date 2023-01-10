@@ -13,14 +13,13 @@ const Register = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    if(loading){
-      return <div className='text-center'>
-          <div className="spinner-border m-5" role="status">
-         <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-  }
-
+        if(loading){
+          return <div className='text-center'>
+              <div className="spinner-border m-5" role="status">
+            <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          }
     const handleSubmit = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -31,17 +30,37 @@ const Register = () => {
         console.log(name,photoURL, email,password)
         createUser(email, password)
         .then(result =>{
-            const newUser = result.user
-                console.log(newUser);
-                form.reset();
-                handleUpdateUserProfile(name, photoURL);
-                navigate(from, {replace: true})
-        })
-        .catch(err=>{
-          console.log(err)
-          setError(`${err.message} Input Valid Email And Password`);
-        });
-    };
+          setError('');
+            const user = result.user
+            fetch('https://ghost-bikers-server.vercel.app/jwt',{
+              method:'POST',
+              headers:{
+                  'content-type': 'application/json',
+                  authorization: `Bearer ${localStorage.getItem('token')}`
+              },
+              body: JSON.stringify(user)
+          })
+          .then(res =>res.json())
+          .then(data =>{
+            console.log(data);
+            localStorage.setItem('token', data.token);
+            form.reset();
+            handleUpdateUserProfile(name, photoURL);
+            navigate(from, {replace: true})
+            
+              })
+
+             })
+             .catch(err=>{
+              console.error(err.message)
+              setError(`${err.message} Email Address or Password don't Match.`);
+          })
+              
+          };
+
+
+
+
 
     const handleGoogleSignIn = () =>{
         googleSignIn()
