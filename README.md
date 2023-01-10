@@ -4,9 +4,9 @@
 
 ## Website Link.
 
-- LiveURL: https://ghost-bikers.web.app/
-- ServerURL: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-RubelRk
-- ClientURL: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-RubelRk
+- LiveURL: https://ghost-bikers.netlify.app/
+- ClientURL: https://github.com/rubel17/ghost-bikers-client
+- ServerURL: https://github.com/rubel17/ghost-bikers-server
 
 ## Why Choose Us(GHOST BIKERS).
 
